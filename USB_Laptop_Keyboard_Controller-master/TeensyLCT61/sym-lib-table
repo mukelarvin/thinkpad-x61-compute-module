@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "T61_LC_Scanner-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/T61_LC_Scanner-eagle-import.kicad_sym")(options "")(descr ""))
+  (lib (name "T61_LC_Scanner-cache")(type "KiCad")(uri "${KIPRJMOD}/T61_LC_Scanner-cache.kicad_sym")(options "")(descr ""))
+)
