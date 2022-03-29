@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "Library")(type "KiCad")(uri "C:/GIT/thinkpad-x61-compute-module/thinkpad-teensy-keyboard/Library.pretty")(options "")(descr ""))
+)
