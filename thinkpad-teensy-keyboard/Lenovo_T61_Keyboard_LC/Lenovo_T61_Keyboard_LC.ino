@@ -18,9 +18,12 @@
 // Revision History
 // Rev 1.0 - April 6, 2022 - Original Release
 //
-#define TP_DATA 18   // ps/2 data to trackpoint
-#define TP_CLK 19    // ps/2 clock to trackpoint
-#define TP_RESET 0   // active high trackpoint reset at power up 
+
+#include "PS2Mouse.h"
+#define TP_DATA 0   // ps/2 data to trackpoint
+#define TP_CLK 1    // ps/2 clock to trackpoint
+#define TP_RESET 2   // active high trackpoint reset at power up
+PS2Mouse mouse(TP_CLK, TP_DATA);
 
 #define MODIFIERKEY_FN 0x8f   // give Fn key a HID code
 // Keyboard LEDs
@@ -304,7 +307,10 @@ void setup() {
   for (int b = 0; b < rows_max; b++) {  // loop thru all row pins 
     go_z(Row_IO[b]); // set each row pin as a floating output
   }  
-//  
+
+  // Set up Trackpoint
+  pinMode(TP_RESET, OUTPUT);
+  digitalWrite(TP_RESET, LOW);
 }
 //
 // **********declare and initialize keyboard variables
@@ -409,5 +415,15 @@ void loop() {
 //
 // ****************End of main loop
 //
+//  MouseData data = mouse.readData();
+//  Mouse.move(data.position.x, data.position.y);
+//  Serial.print(data.status, BIN);
+//    Serial.print("\tx=");
+//    Serial.print(data.position.x);
+//    Serial.print("\ty=");
+//    Serial.print(data.position.y);
+//    Serial.print("\twheel=");
+//    Serial.print(data.wheel);
+//    Serial.println();
   delay(24); // The overall keyboard scanning rate
 }
